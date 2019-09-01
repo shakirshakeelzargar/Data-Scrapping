@@ -5,7 +5,6 @@
 #Pass the second argument as how many pages you want to scrap
 #Enjoy
 
-
 import bs4
 from urllib.request import urlopen as ureq
 
@@ -89,6 +88,9 @@ def data_scrap(url,no_of_pages):
                 div3=None
             if div1 is not None:
                 div4=div3.find("div","_1vC4OE _2rQ-NK")
+            else:
+                div4=None
+            if div4 is not None:
                 newPrice1=div4.text
                 newPrice2=newPrice1[1:]
                 newPrice=newPrice2.replace(",","")
@@ -176,5 +178,5 @@ def data_scrap(url,no_of_pages):
     f.close()
     print("Check your file here : "+fileSave)
 
-data_scrap('http://www.flipkart.com/search?q=mobiles&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off',10)
+data_scrap('http://www.flipkart.com/search?q=mobiles&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off',50)
 
